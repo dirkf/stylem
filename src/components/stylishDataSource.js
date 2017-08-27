@@ -25,7 +25,6 @@ StylishDataSource.prototype = {
 	classDescription: "Stylem Data Source",
 	classID: Components.ID("{034c0c63-b55e-4022-a291-a542db4ea930}"),
 	contractID: "@stylem.ext/stylem-data-source;1",
-	implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
 	flags: 0,
 	alreadyComplained: false,
 

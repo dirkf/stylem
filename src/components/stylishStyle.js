@@ -22,7 +22,7 @@ function Style() {
 	this._enabled = false;
 
 	this.meta = [];
- 
+
 
 	this.previewOn = false;
 	this.appliedInfoToBeCalculated = false;
@@ -49,7 +49,6 @@ Style.prototype = {
 	classDescription: "Stylem Style",
 	classID: Components.ID("{152f4e0f-2b9a-4bb8-b058-736b687f7555}"),
 	contractID: "@stylem.ext/style;1",
-	implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
 	flags: 0,
 
 
@@ -448,7 +447,7 @@ Style.prototype = {
 
 	checkForUpdates: function(observer) {
 		var that = this;
-		
+
 		var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
 		observerService.notifyObservers(that, "stylem-style-update-check-start", null);
 		if (observer) {
@@ -686,7 +685,7 @@ Style.prototype = {
 		)
 			this.addMeta("type", "global");
 		// everything else is site
-		else 
+		else
 			this.addMeta("type", "site");
 	},
 
@@ -727,7 +726,7 @@ Style.prototype = {
 			unregisterUrl = this.appliedInfo[0];
 			unregisterMethod = this.appliedInfo[1];
 		}
-		
+
 		if (this.sss.sheetRegistered(unregisterUrl, unregisterMethod)) {
 			this.sss.unregisterSheet(unregisterUrl, unregisterMethod);
 		// ignore unregistered styles if stylish isn't on
