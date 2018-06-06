@@ -46,8 +46,8 @@ addEventListener("DOMContentLoaded", function(event) {
 });
 
 addMessageListener("stylish:style-can-be-installed", function(message) {
-	dispatchEvent("styleCanBeInstalled");
-	content.document.addEventListener("stylishInstall", installFromSite);
+	dispatchEvent("styleCanBeInstalledChrome");
+	content.document.addEventListener("stylishInstallChrome", installFromSite);
 });
 
 function installFromSite(event) {
@@ -59,18 +59,22 @@ function installFromSite(event) {
 }
 
 addMessageListener("stylish:style-installed", function(message) {
-	dispatchEvent("styleInstalled");
+	dispatchEvent("styleInstalledChrome");
 });
 
 addMessageListener("stylish:style-already-installed", function(message) {
-	dispatchEvent("styleAlreadyInstalled");
+	dispatchEvent("styleAlreadyInstalledChrome");
 	// listen to this regardless, the page may decide to allow updates anyway (e.g. for styles with settings)
-	content.document.addEventListener("stylishUpdate", updateFromSite);
+	content.document.addEventListener("stylishUpdateChrome", updateFromSite);
 });
 
 addMessageListener("stylish:style-can-be-updated", function(message) {
-	dispatchEvent("styleCanBeUpdated");
-	content.document.addEventListener("stylishUpdate", updateFromSite);
+	dispatchEvent("styleCanBeUpdatedChrome");
+	content.document.addEventListener("stylishUpdateChrome", updateFromSite);
+});
+
+addMessageListener("stylish:installed", function(message) {
+	dispatchEvent("StylishInstalled");
 });
 
 function updateFromSite(event) {
