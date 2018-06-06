@@ -3,7 +3,7 @@
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description rdf:about="urn:mozilla:install-manifest">
-		<em:id>{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}</em:id>
+		<em:id>{503a85e3-84c9-40e5-b98e-98e62085837f}</em:id>
 		<em:name>Stylish</em:name>
 		<em:version>2.0.7b1</em:version>
 		<em:creator>Jason Barnabe</em:creator>
