@@ -1,21 +1,21 @@
 "use strict";
 
 var stylishOverlay = {
-	service: Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle),
+	service: Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle),
 	styleMenuItemTemplate: null,
-	bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].createInstance(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/overlay.properties"),
+	bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].createInstance(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/overlay.properties"),
 
 	//cached number of global styles
 	globalCount: null,
 
-	uiElementIds: ["stylish-toolbar-button"],
+	uiElementIds: ["stylem-toolbar-button"],
 
 	init: function() {
-		stylishOverlay.STRINGS = document.getElementById("stylish-strings");
-		stylishOverlay.URL_STRINGS = document.getElementById("stylish-url-strings");
+		stylishOverlay.STRINGS = document.getElementById("stylem-strings");
+		stylishOverlay.URL_STRINGS = document.getElementById("stylem-url-strings");
 
 		var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch);
-		switch (prefService.getIntPref("extensions.stylish.firstRun")) {
+		switch (prefService.getIntPref("extensions.stylem.firstRun")) {
 			case 0:
 				// show firstrun page
 				if (typeof openUILinkIn != "undefined") {
@@ -24,30 +24,30 @@ var stylishOverlay = {
 			case 2:
 				// add to nav bar
 				var navbar = document.getElementById("nav-bar");
-				var button = document.getElementById("stylish-toolbar-button");
+				var button = document.getElementById("stylem-toolbar-button");
 				if (navbar && !button) {
-					var newCurrentSet = navbar.currentSet.split(",").concat(["stylish-toolbar-button"]).join(",");
+					var newCurrentSet = navbar.currentSet.split(",").concat(["stylem-toolbar-button"]).join(",");
 					navbar.currentSet = newCurrentSet; // for immediate display
 					navbar.setAttribute("currentset", newCurrentSet); // for persisting
 					document.persist(navbar.id, "currentset");
 				}
-				prefService.setIntPref("extensions.stylish.firstRun", 3);
+				prefService.setIntPref("extensions.stylem.firstRun", 3);
 		}
 
 		stylishOverlay.styleMenuItemTemplate = document.createElementNS(stylishCommon.XULNS, "menuitem");
 		stylishCommon.domApplyAttributes(stylishOverlay.styleMenuItemTemplate, {
 			"type": "checkbox",
 			"class": "style-menu-item",
-			"context": "stylish-style-context"
+			"context": "stylem-style-context"
 		});
 
 		// sets attributes for 24-based hour of the day
 		function updateTimes() {
 			var date = new Date();
-			document.documentElement.setAttribute("stylish-hour", date.getHours());
-			document.documentElement.setAttribute("stylish-day", date.getDay());
-			document.documentElement.setAttribute("stylish-date", date.getDate());
-			document.documentElement.setAttribute("stylish-month", date.getMonth() + 1);
+			document.documentElement.setAttribute("stylem-hour", date.getHours());
+			document.documentElement.setAttribute("stylem-day", date.getDay());
+			document.documentElement.setAttribute("stylem-date", date.getDate());
+			document.documentElement.setAttribute("stylem-month", date.getMonth() + 1);
 		}
 		// once a minute
 		setInterval(updateTimes, 1000 * 60);
@@ -68,20 +68,20 @@ var stylishOverlay = {
 
 		// app info for styling
 		var appInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
-		document.documentElement.setAttribute("stylish-platform", window.navigator.platform);
-		document.documentElement.setAttribute("stylish-application", appInfo.name);
-		document.documentElement.setAttribute("stylish-application-version", appInfo.version);
+		document.documentElement.setAttribute("stylem-platform", window.navigator.platform);
+		document.documentElement.setAttribute("stylem-application", appInfo.name);
+		document.documentElement.setAttribute("stylem-application-version", appInfo.version);
 
 		// other things that can change the status:
 
 		// global on/off pref
-		prefService.addObserver("extensions.stylish.styleRegistrationEnabled", stylishOverlay, false);
+		prefService.addObserver("extensions.stylem.styleRegistrationEnabled", stylishOverlay, false);
 
 		// style add/delete
 		var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-		observerService.addObserver(stylishOverlay, "stylish-style-add", false);
-		observerService.addObserver(stylishOverlay, "stylish-style-change", false);
-		observerService.addObserver(stylishOverlay, "stylish-style-delete", false);
+		observerService.addObserver(stylishOverlay, "stylem-style-add", false);
+		observerService.addObserver(stylishOverlay, "stylem-style-change", false);
+		observerService.addObserver(stylishOverlay, "stylem-style-delete", false);
 	},
 
 	destroy: function() {
@@ -89,9 +89,9 @@ var stylishOverlay = {
 			gBrowser.removeProgressListener(stylishOverlay.urlLoadedListener, Components.interfaces.nsIWebProgress.NOTIFY_STATE_DOCUMENT); 
 		}
 		var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-		observerService.removeObserver(stylishOverlay, "stylish-style-add");
-		observerService.removeObserver(stylishOverlay, "stylish-style-change");
-		observerService.removeObserver(stylishOverlay, "stylish-style-delete");
+		observerService.removeObserver(stylishOverlay, "stylem-style-add");
+		observerService.removeObserver(stylishOverlay, "stylem-style-change");
+		observerService.removeObserver(stylishOverlay, "stylem-style-delete");
 	},
 
 	observe: function(subject, topic, data) {
@@ -129,14 +129,14 @@ var stylishOverlay = {
 		if (stylishOverlay.lastUrl == uri.spec)
 			return;
 		stylishOverlay.lastUrl = uri.spec;
-		document.documentElement.setAttribute("stylish-url", uri.spec);
+		document.documentElement.setAttribute("stylem-url", uri.spec);
 		try {
 			if (uri.host)
-				document.documentElement.setAttribute("stylish-domain", uri.host);
+				document.documentElement.setAttribute("stylem-domain", uri.host);
 			else
-				document.documentElement.setAttribute("stylish-domain", "");
+				document.documentElement.setAttribute("stylem-domain", "");
 		} catch (ex) {
-				document.documentElement.setAttribute("stylish-domain", "");
+				document.documentElement.setAttribute("stylem-domain", "");
 		}
 		stylishOverlay.updateStatus();
 	},
@@ -152,14 +152,14 @@ var stylishOverlay = {
 		}
 
 		function updateTooltip(string) {
-			var tooltip = document.getElementById("stylish-tooltip").firstChild;
+			var tooltip = document.getElementById("stylem-tooltip").firstChild;
 			while (tooltip.hasChildNodes()) {
 				tooltip.removeChild(tooltip.lastChild);
 			}
 			tooltip.appendChild(document.createTextNode(string));
 		}
 
-		if (!Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylish.styleRegistrationEnabled")) {
+		if (!Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylem.styleRegistrationEnabled")) {
 			updateAttribute("styles-off");
 			updateTooltip(stylishOverlay.STRINGS.getString("tooltipStylesOff"));
 			return;
@@ -220,7 +220,7 @@ var stylishOverlay = {
 		var popup = event.target;
 
 		// This fires for children too!
-		if (popup.id != "stylish-popup") {
+		if (popup.id != "stylem-popup") {
 			return;
 		}
 
@@ -229,10 +229,10 @@ var stylishOverlay = {
 		}
 
 		// You can only add CSS files. Assume it's not CSS to avoid the item showing then disappearing.
-		document.getElementById("stylish-add-file").style.display = "none";
+		document.getElementById("stylem-add-file").style.display = "none";
 		stylishOverlay.getFromContent("stylish:page-info", function(message) {
 			if (message.data.contentType == "text/css") {
-				document.getElementById("stylish-add-file").style.display = "-moz-box";
+				document.getElementById("stylem-add-file").style.display = "-moz-box";
 			}
 		});
 
@@ -277,7 +277,7 @@ var stylishOverlay = {
 		function addSeparatorIfNecessary() {
 			if (!separatorAdded) {
 				var separator = document.createElement("menuseparator");
-				separator.className = "stylish-menuseparator";
+				separator.className = "stylem-menuseparator";
 				popup.appendChild(separator);
 				separatorAdded = true;
 			}
@@ -317,10 +317,10 @@ var stylishOverlay = {
 
 		var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch);
 
-		var showMatchingSiteStyles = prefService.getCharPref("extensions.stylish.buttonStylesDisplay.siteMatching");
-		var showNonMatchingSiteStyles = prefService.getCharPref("extensions.stylish.buttonStylesDisplay.siteNonMatching");
-		var showGlobalStyles = prefService.getCharPref("extensions.stylish.buttonStylesDisplay.global");
-		var showAppStyles = prefService.getCharPref("extensions.stylish.buttonStylesDisplay.app");
+		var showMatchingSiteStyles = prefService.getCharPref("extensions.stylem.buttonStylesDisplay.siteMatching");
+		var showNonMatchingSiteStyles = prefService.getCharPref("extensions.stylem.buttonStylesDisplay.siteNonMatching");
+		var showGlobalStyles = prefService.getCharPref("extensions.stylem.buttonStylesDisplay.global");
+		var showAppStyles = prefService.getCharPref("extensions.stylem.buttonStylesDisplay.app");
 
 		if (showMatchingSiteStyles == SHOW_IN_SUBMENU) {
 			addStylesInSubmenu(stylesForCurrentSite(), this.bundle.GetStringFromName("submenuformatchingsite"));
@@ -366,16 +366,16 @@ var stylishOverlay = {
 			addStylesToMainMenu(appStyles())
 		}
 
-		var stylesOn = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylish.styleRegistrationEnabled");
-		document.getElementById("stylish-turn-on").style.display = stylesOn ? "none" : "-moz-box";
-		document.getElementById("stylish-turn-off").style.display = stylesOn ? "-moz-box" : "none";
+		var stylesOn = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylem.styleRegistrationEnabled");
+		document.getElementById("stylem-turn-on").style.display = stylesOn ? "none" : "-moz-box";
+		document.getElementById("stylem-turn-off").style.display = stylesOn ? "-moz-box" : "none";
 	},
 
 	popupHiding: function(event) {
 		var popup = event.target;
 
 		// This fires for children too!
-		if (popup.id != "stylish-popup") {
+		if (popup.id != "stylem-popup") {
 			return;
 		}
 
@@ -428,7 +428,7 @@ var stylishOverlay = {
 		openUILinkIn(stylishOverlay.URL_STRINGS.getFormattedString("findstylesforthissiteurl", [encodeURIComponent(stylishOverlay.currentURI.spec.split("?", 2)[0])]), "tab");
 	},
 
-	menuItemClassesToClear: ["stylish-menuseparator", "style-menu-item", "no-style-menu-item"],
+	menuItemClassesToClear: ["stylem-menuseparator", "style-menu-item", "no-style-menu-item"],
 	clearStyleMenuItems: function(event) {
 		var popup = event.target;
 		for (var i = popup.childNodes.length - 1; i >= 0; i--) {
@@ -480,8 +480,8 @@ var stylishOverlay = {
 
 	showApplicableContextItems: function(event) {
 		var style = document.popupNode.stylishStyle;
-		document.getElementById("stylish-style-context-enable").hidden = style.enabled;
-		document.getElementById("stylish-style-context-disable").hidden = !style.enabled;
+		document.getElementById("stylem-style-context-enable").hidden = style.enabled;
+		document.getElementById("stylem-style-context-disable").hidden = !style.enabled;
 	},
 
 	contextSetEnabled: function(enabled) {
@@ -499,12 +499,12 @@ var stylishOverlay = {
 	},
 
 	turnOnOff: function(on) {
-		Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).setBoolPref("extensions.stylish.styleRegistrationEnabled", on);
+		Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).setBoolPref("extensions.stylem.styleRegistrationEnabled", on);
 	},
 
 	handleStatusClick: function(event) {
 		//open manage styles on middle click
-		if (event.target.id == "stylish-toolbar-button" && event.button == 1) {
+		if (event.target.id == "stylem-toolbar-button" && event.button == 1) {
 			stylishOverlay.openManage();
 		}
 	},

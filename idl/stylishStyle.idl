@@ -3,7 +3,7 @@
 #include "nsIConsoleListener.idl"
 #include "nsIObserver.idl"
 
-[scriptable, uuid(6cd15928-080e-4c0f-b3af-90922cf4f9e8)]
+[scriptable, uuid(152f4e0f-2b9a-4bb8-b058-736b687f7555)]
 interface stylishStyle : nsIClassInfo
 {
 	attribute unsigned long id;

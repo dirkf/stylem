@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://stylish/skin/install.css" type="text/css"?>
+<?xml-stylesheet href="chrome://stylem/skin/install.css" type="text/css"?>
 
 <!DOCTYPE dialog [
-	<!ENTITY % edit SYSTEM "chrome://stylish/locale/install.dtd">
+	<!ENTITY % edit SYSTEM "chrome://stylem/locale/install.dtd">
 	%edit;
 ]>
 
@@ -30,7 +30,7 @@
 	<script type="application/javascript" src="common.js"/>
 	<script type="application/javascript" src="install.js"/>
 
-	<stringbundle id="strings" src="chrome://stylish/locale/install.properties"/>
+	<stringbundle id="strings" src="chrome://stylem/locale/install.properties"/>
 
 	<description id="install-intro"/>
 	<vbox id="applies-to-container" flex="1">

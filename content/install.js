@@ -50,7 +50,7 @@ function init() {
 	}
 	window.sizeToContent();
 
-	if (!Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylish.promptOnInstall")) {
+	if (!Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylem.promptOnInstall")) {
 		installPingURL = null;
 		save(true);
 	}

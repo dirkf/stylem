@@ -5,19 +5,19 @@ try {
 	Components.utils.import("resource://gre/modules/AddonManager.jsm");
 } catch (ex) {}
 var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-var bundle = Components.classes["@mozilla.org/intl/stringbundle;1"].createInstance(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/manage.properties");
+var bundle = Components.classes["@mozilla.org/intl/stringbundle;1"].createInstance(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/manage.properties");
 
 function StylishStartup() {}
 
 StylishStartup.prototype = {
-	classID: Components.ID("{6ff9ed70-e673-11dc-95ff-0800200c9a66}"),
-	contractID: "@stylish/startup;2",
-	classDescription: "Stylish Startup",
+	classID: Components.ID("{dd9897e8-168b-44c7-960d-63202b78f1a6}"),
+	contractID: "@stylem/startup;2",
+	classDescription: "Stylem Startup",
 
 	QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsISupports, Components.interfaces.nsIObserver]),
 
 	observe: function(aSubject, aTopic, aData) {
-		var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+		var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 		service.findEnabled(true, service.REGISTER_STYLE_ON_LOAD, {});
 		if (typeof AddonManagerPrivate != "undefined") {
 			AddonManagerPrivate.registerProvider(UserStyleManager, [{
@@ -33,7 +33,7 @@ StylishStartup.prototype = {
 
 var turnOnOffObserver = {
 	observe: function(subject, topic, data) {
-		var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+		var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 		service.findEnabled(true, subject.QueryInterface(Components.interfaces.nsIPrefBranch).getBoolPref(data) ? service.REGISTER_STYLE_ON_LOAD : service.UNREGISTER_STYLE_ON_LOAD, {});
 	}
 }
@@ -47,13 +47,13 @@ var UserStyleManager = {
 			aCallback([]);
 			return;
 		}
-		var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+		var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 		var styles = service.list(service.REGISTER_STYLE_ON_CHANGE, {});
 		aCallback(styles.map(getUserStyleWrapper));
 	},
 
 	getAddonByID: function(id, callback) {
-		var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+		var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 		var style = service.find(id, service.REGISTER_STYLE_ON_CHANGE);
 		if (style == null) {
 			callback(null);
@@ -129,7 +129,7 @@ function getUserStyleWrapper(s) {
 		pendingOperations: AddonManager.PENDING_NONE,
 		isCompatible: true,
 		isPlatformCompatible: true,
-		iconURL: "chrome://stylish/skin/32.png",
+		iconURL: "chrome://stylem/skin/32.png",
 		scope: AddonManager.SCOPE_PROFILE,
 		blocklistState: Components.interfaces.nsIBlocklistService.STATE_NOT_BLOCKED,
 		version: "",
@@ -166,7 +166,7 @@ function getUserStyleWrapper(s) {
 		get permissions() {
 			return AddonManager.PERM_CAN_UNINSTALL | 
 				(this.style.enabled ? AddonManager.PERM_CAN_DISABLE : AddonManager.PERM_CAN_ENABLE) |
-				(this.style.updateUrl != null && this.style.updateUrl != "" && this.style.updateUrl.length <= 2000 && prefService.getBoolPref("extensions.stylish.updatesEnabled") ? AddonManager.PERM_CAN_UPGRADE : 0); // if the url length is too long, a GET won't work, and it's probably going to be too much server-side to handle
+				(this.style.updateUrl != null && this.style.updateUrl != "" && this.style.updateUrl.length <= 2000 && prefService.getBoolPref("extensions.stylem.updatesEnabled") ? AddonManager.PERM_CAN_UPGRADE : 0); // if the url length is too long, a GET won't work, and it's probably going to be too much server-side to handle
 		},
 
 		get isActive() {
@@ -237,7 +237,7 @@ function getUserStyleWrapper(s) {
 		}
 	};
 	var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-	observerService.addObserver(w, "stylish-style-change", false);
+	observerService.addObserver(w, "stylem-style-change", false);
 	return w;
 }
 
@@ -251,7 +251,7 @@ function getUserStyleUpdateCheckObserver(addonItem, listener) {
 			if (subject.id == this.addonItem.id) {
 				// Results of "check for updates"
 				switch (topic) {
-					case "stylish-style-update-check-done":
+					case "stylem-style-update-check-done":
 						if (data == "update-available" && "onUpdateAvailable" in this.listener) {
 							var installItem = getUserStyleUpdateInstallItem(this.addonItem);
 							if (!pendingUpdates.some(function(item) {
@@ -288,13 +288,13 @@ function getUserStyleUpdateInstallItem(addonItem) {
 					l.onInstallStarted(this, this.addon);
 				}
 			}, this);
-			var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+			var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 			var that = this;
 
 			// Results for "apply updates"
 			var updateAttemptObserver = {
 				observe: function(subject, topic, data) {
-					if (topic != "stylish-style-update-done") {
+					if (topic != "stylem-style-update-done") {
 						return;
 					}
 					switch (data) {
@@ -341,7 +341,7 @@ var addonsObserver = {
 	observe: function(subject, topic, data) {
 		var itemWrapper = getUserStyleWrapper(subject);
 		switch (topic) {
-			case "stylish-style-add":
+			case "stylem-style-add":
 				var install = {
 					name: subject.name,
 					type: "userstyle",
@@ -352,29 +352,29 @@ var addonsObserver = {
 				AddonManagerPrivate.callInstallListeners("onInstallStarted", [], install);
 				AddonManagerPrivate.callInstallListeners("onInstallEnded", [], install, itemWrapper);
 				break;
-			case "stylish-style-change":
+			case "stylem-style-change":
 				AddonManagerPrivate.callInstallListeners("onExternalInstall", [], itemWrapper, itemWrapper, false);
 				break;
-			case "stylish-style-delete":
+			case "stylem-style-delete":
 				AddonManagerPrivate.callAddonListeners("onUninstalled", itemWrapper);
 				break;
 		}
 	}
 }
 var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-observerService.addObserver(addonsObserver, "stylish-style-add", false);
-observerService.addObserver(addonsObserver, "stylish-style-change", false);
-observerService.addObserver(addonsObserver, "stylish-style-delete", false);
+observerService.addObserver(addonsObserver, "stylem-style-add", false);
+observerService.addObserver(addonsObserver, "stylem-style-change", false);
+observerService.addObserver(addonsObserver, "stylem-style-delete", false);
 
-Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch).addObserver("extensions.stylish.styleRegistrationEnabled", turnOnOffObserver, false);
+Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch).addObserver("extensions.stylem.styleRegistrationEnabled", turnOnOffObserver, false);
 
 function wireUpMessaging() {
-	Components.utils.import("chrome://stylish/content/common.js");
-	var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
-	var STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/overlay.properties");
+	Components.utils.import("chrome://stylem/content/common.js");
+	var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
+	var STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/overlay.properties");
 
 	var globalMM = Components.classes["@mozilla.org/globalmessagemanager;1"].getService(Components.interfaces.nsIMessageListenerManager);
-	globalMM.loadFrameScript("chrome://stylish/content/install-frame-script.js", true);
+	globalMM.loadFrameScript("chrome://stylem/content/install-frame-script.js", true);
 
 	function reply(incomingMessage, name, data) {
 		incomingMessage.target.messageManager.sendAsyncMessage(name, data);

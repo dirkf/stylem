@@ -3,7 +3,7 @@
 #include "nsIFile.idl"
 interface mozIStorageConnection;
 
-[scriptable, uuid(d6fe57ea-1126-4dc6-8636-d25d5b901929)]
+[scriptable, uuid(034c0c63-b55e-4022-a291-a542db4ea930)]
 interface stylishDataSource : nsIClassInfo
 {
 	mozIStorageConnection getConnection();

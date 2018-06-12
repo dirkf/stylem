@@ -1,8 +1,8 @@
 <!ENTITY filter "Αναζήτηση">
 <!ENTITY installfromurls "Εγκατάσταση από διευθύνσεις URL…">
-<!ENTITY managetitle "Stylish">
+<!ENTITY managetitle "Stylem">
 <!ENTITY nostylesstart "Επίσκεψη">
-<!ENTITY nostylesend "για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Stylish.">
+<!ENTITY nostylesend "για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Stylem.">
 <!ENTITY sortenabled "Ενεργοποιήθηκε">
 <!ENTITY sortname "Ονομα">
 <!ENTITY sorttype "Τύπος">

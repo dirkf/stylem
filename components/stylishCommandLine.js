@@ -6,8 +6,8 @@ function StylishCommandLine() {}
 
 StylishCommandLine.prototype = {
 
-  classID: Components.ID("{639A2E30-078F-11DE-9C63-BC2A56D89593}"),
-  contractID: "@mozilla.org/commandlinehandler/general-startup;1?type=stylish",
+  classID: Components.ID("{9682c01e-071a-45c4-8846-abccc00f3675}"),
+  contractID: "@mozilla.org/commandlinehandler/general-startup;1?type=stylem",
 
   /* nsISupports */
   QueryInterface : XPCOMUtils.generateQI([Components.interfaces.nsICommandLineHandler, Components.interfaces.nsIFactory, Components.interfaces.nsISupports, Components.interfaces.nsIObserver]),
@@ -15,15 +15,15 @@ StylishCommandLine.prototype = {
   /* nsICommandLineHandler */
 
 	handle: function(commandLine) {
-		var index = commandLine.findFlag("stylish-disable", false);
+		var index = commandLine.findFlag("stylem-disable", false);
 		if (index > -1) {
 			var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch)
-			prefs.setBoolPref("extensions.stylish.styleRegistrationEnabled", false);
+			prefs.setBoolPref("extensions.stylem.styleRegistrationEnabled", false);
 			commandLine.removeArguments(index, index);
 		}
 	},
 
-	helpInfo: "  -stylish-disable               Turn off style registration in Stylish\n",
+	helpInfo: "  -stylem-disable               Turn off style registration in Stylem\n",
 
   /* nsIFactory */
 
@@ -53,5 +53,5 @@ else
 
 // Does not work in Fx 4
 try {
-Components.classes["@mozilla.org/categorymanager;1"].getService(Components.interfaces.nsICategoryManager).addCategoryEntry("command-line-handler", "m-stylish", StylishCommandLine.prototype.contractID, true, true);
+Components.classes["@mozilla.org/categorymanager;1"].getService(Components.interfaces.nsICategoryManager).addCategoryEntry("command-line-handler", "m-stylem", StylishCommandLine.prototype.contractID, true, true);
 } catch (ex) {}

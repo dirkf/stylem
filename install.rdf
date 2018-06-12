@@ -4,13 +4,12 @@
 	xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description rdf:about="urn:mozilla:install-manifest">
 		<em:id>{503a85e3-84c9-40e5-b98e-98e62085837f}</em:id>
-		<em:name>Stylish</em:name>
+		<em:name>Stylem</em:name>
 		<em:version>2.0.7b1</em:version>
-		<em:creator>Jason Barnabe</em:creator>
-		<em:homepageURL>https://userstyles.org/</em:homepageURL>
-		<em:iconURL>chrome://stylish/skin/32.png</em:iconURL>
+		<em:creator>Lootyhoof</em:creator>
+		<em:iconURL>chrome://stylem/skin/32.png</em:iconURL>
 		<em:optionsType>2</em:optionsType>
-		<em:optionsURL>chrome://stylish/content/options.xul</em:optionsURL>
+		<em:optionsURL>chrome://stylem/content/options.xul</em:optionsURL>
 		<em:multiprocessCompatible>true</em:multiprocessCompatible>
 		<em:translator>Team erweiterungen.de - de</em:translator>
 		<em:translator>Fux - de</em:translator>
@@ -65,13 +64,15 @@
 		<em:contributor>t1470258 - icons</em:contributor>
 		<em:contributor>LouCypher - icons</em:contributor>
 		<em:contributor>s4nji - icons</em:contributor>
+		<em:contributor>Jason Barnabe</em:contributor>
 		<em:type>2</em:type>
-		<!--Firefox-->
+		<!--Basilisk-->
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>19.0</em:minVersion>
-				<em:maxVersion>51.0</em:maxVersion>
+				<em:maxVersion>52.*</em:maxVersion>
+        <em:basilisk>true</em:basilisk>
 			</Description>
 		</em:targetApplication>
 		<!--Thunderbird-->
@@ -143,7 +144,7 @@
 			<Description>
 				<em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
 				<em:minVersion>25.0</em:minVersion>
-				<em:maxVersion>25.*</em:maxVersion>
+				<em:maxVersion>28.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>

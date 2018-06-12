@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://stylish/skin/edit.css" type="text/css"?>
+<?xml-stylesheet href="chrome://stylem/skin/edit.css" type="text/css"?>
 <?xml-stylesheet href="chrome://browser/skin/devtools/common.css" type="text/css"?>
 <?xul-overlay href="chrome://global/content/editMenuOverlay.xul"?>
 
 <!DOCTYPE window [
-	<!ENTITY % edit SYSTEM "chrome://stylish/locale/edit.dtd">
+	<!ENTITY % edit SYSTEM "chrome://stylem/locale/edit.dtd">
 	<!ENTITY % internaledit SYSTEM "chrome://global/locale/editMenuOverlay.dtd">
 	%edit;
 	%internaledit;
@@ -13,22 +13,22 @@
 
 <window
 	class="theme-body"
-	id="stylish-edit"
+	id="stylem-edit"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 
-	<html:link rel="icon" href="chrome://stylish/skin/16.png" style="display:none"/>
+	<html:link rel="icon" href="chrome://stylem/skin/16.png" style="display:none"/>
 
 	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
-	<script type="application/javascript" src="chrome://stylish/content/edit.js"/>
-	<script type="application/javascript" src="chrome://stylish/content/frame-utils.js"/>
-	<script type="application/javascript" src="chrome://stylish/content/common.js"/>
+	<script type="application/javascript" src="chrome://stylem/content/edit.js"/>
+	<script type="application/javascript" src="chrome://stylem/content/frame-utils.js"/>
+	<script type="application/javascript" src="chrome://stylem/content/common.js"/>
 	<script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"></script>
 	<script type="application/javascript;version=1.8" src="chrome://devtools/content/shared/theme-switching.js"></script>
 
 	<script type="application/javascript" src="chrome://itsalltext/content/API.js"/>
 
-	<stringbundle id="strings" src="chrome://stylish/locale/edit.properties"/>
+	<stringbundle id="strings" src="chrome://stylem/locale/edit.properties"/>
 
 	<keyset>
 		<key id="save-key" modifiers="control" key="S" oncommand="save()"/>

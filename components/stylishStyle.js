@@ -45,9 +45,9 @@ Style.prototype = {
 	getHelperForLanguage: function getHelperForLanguage(aLanguage) {
 		return null;
 	},
-	classDescription: "Stylish Style",
-	classID: Components.ID("{ea17a766-cdd4-444b-8d8d-b5bb935a2a22}"),
-	contractID: "@userstyles.org/style;1",
+	classDescription: "Stylem Style",
+	classID: Components.ID("{152f4e0f-2b9a-4bb8-b058-736b687f7555}"),
+	contractID: "@stylem.ext/style;1",
 	implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
 	flags: 0,
 
@@ -226,7 +226,7 @@ Style.prototype = {
 			connection.close();
 		}
 
-		Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService).notifyObservers(this, "stylish-style-delete", null);
+		Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService).notifyObservers(this, "stylem-style-delete", null);
 
 		this.id = 0;
 	},
@@ -327,7 +327,7 @@ Style.prototype = {
 
 		connection.close();
 
-		Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService).notifyObservers(this, newStyle ? "stylish-style-add" : "stylish-style-change", reason || null);
+		Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService).notifyObservers(this, newStyle ? "stylem-style-add" : "stylem-style-change", reason || null);
 	},
 
 	appliesToUrl: function(url) {
@@ -449,15 +449,15 @@ Style.prototype = {
 		var that = this;
 		
 		var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-		observerService.notifyObservers(that, "stylish-style-update-check-start", null);
+		observerService.notifyObservers(that, "stylem-style-update-check-start", null);
 		if (observer) {
-			observer.observe(that, "stylish-style-update-check-start", null);
+			observer.observe(that, "stylem-style-update-check-start", null);
 		}
 
 		function notifyDone(result) {
-			observerService.notifyObservers(that, "stylish-style-update-check-done", result);
+			observerService.notifyObservers(that, "stylem-style-update-check-done", result);
 			if (observer) {
-				observer.observe(that, "stylish-style-update-check-done", result);
+				observer.observe(that, "stylem-style-update-check-done", result);
 			}
 		}
 
@@ -498,14 +498,14 @@ Style.prototype = {
 
 	applyUpdate: function(observer) {
 		var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-		observerService.notifyObservers(this, "stylish-style-update-start", null);
+		observerService.notifyObservers(this, "stylem-style-update-start", null);
 
 		var that = this;
 
 		function notifyDone(result) {
-			observerService.notifyObservers(that, "stylish-style-update-done", result);
+			observerService.notifyObservers(that, "stylem-style-update-done", result);
 			if (observer) {
-				observer.observe(that, "stylish-style-update-done", result);
+				observer.observe(that, "stylem-style-update-done", result);
 			}
 		}
 
@@ -579,7 +579,7 @@ Style.prototype = {
 	*/
 	//can't hard-code because it may not be here when the prototype is created
 	get ds() {
-		var ds = Components.classes["@userstyles.org/stylish-data-source;1"].getService(Components.interfaces.stylishDataSource)
+		var ds = Components.classes["@stylem.ext/stylem-data-source;1"].getService(Components.interfaces.stylishDataSource)
 		this.__defineGetter__("ds", function() {
 			return ds;
 		});
@@ -592,7 +592,7 @@ Style.prototype = {
 	getStyleSheet: function(code) {
 		var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"].createInstance(Components.interfaces.nsIDOMParser);
 		var doc1 = parser.parseFromString("<html xmlns='" + this.HTMLNS + "'/>", "application/xhtml+xml");
-		var doc = doc1.implementation.createDocument(this.HTMLNS, "stylish-parse", null)
+		var doc = doc1.implementation.createDocument(this.HTMLNS, "stylem-parse", null)
 		var style = doc.createElementNS(this.HTMLNS, "style");
 		style.appendChild(doc.createTextNode(code));
 		doc.documentElement.appendChild(style);
@@ -817,7 +817,7 @@ Style.prototype = {
 			var styles = [];
 			var styleMap = [];
 			while (statement.executeStep()) {
-				var style = Components.classes["@userstyles.org/style;1"].createInstance(Components.interfaces.stylishStyle);
+				var style = Components.classes["@stylem.ext/style;1"].createInstance(Components.interfaces.stylishStyle);
 				//it makes no sense to calculate meta here because we can load from the db
 				if (mode & this.CALCULATE_META)
 					style.mode = mode - this.CALCULATE_META;
@@ -983,7 +983,7 @@ Style.prototype = {
 	},
 
 	get stylishOn() {
-		return Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylish.styleRegistrationEnabled");
+		return Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getBoolPref("extensions.stylem.styleRegistrationEnabled");
 	},
 
 	getConnection: function() {

@@ -1,6 +1,6 @@
 "use strict";
 
-Components.utils.import("chrome://stylish/content/frame-utils.js", this);
+Components.utils.import("chrome://stylem/content/frame-utils.js", this);
 
 function isAllowedToInstall(doc) {
 	// main doc only
@@ -20,7 +20,7 @@ function isAllowedToInstall(doc) {
 		return false;
 	}
 	var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-	prefs = prefs.getBranch("extensions.stylish.install.");
+	prefs = prefs.getBranch("extensions.stylem.install.");
 	var allowedDomains = prefs.getCharPref("allowedDomains").split(" ");
 	if (allowedDomains.indexOf(domain) > -1) {
 		return true;

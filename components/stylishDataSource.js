@@ -22,9 +22,9 @@ StylishDataSource.prototype = {
 	getHelperForLanguage: function getHelperForLanguage(aLanguage) {
 		return null;
 	},
-	classDescription: "Stylish Data Source",
-	classID: Components.ID("{d6fe57ea-1126-4dc6-8636-d25d5b901929}"),
-	contractID: "@userstyles.org/stylish-data-source;1",
+	classDescription: "Stylem Data Source",
+	classID: Components.ID("{034c0c63-b55e-4022-a291-a542db4ea930}"),
+	contractID: "@stylem.ext/stylem-data-source;1",
 	implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
 	flags: 0,
 	alreadyComplained: false,
@@ -42,7 +42,7 @@ StylishDataSource.prototype = {
 			if (!this.alreadyComplained) {
 				this.alreadyComplained = true;
 				var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService)
-				promptService.alert(null, 'Problem with Stylish', 'Stylish is having problems opening its database. It will be non-functional until this problem is fixed. See http://userstyles.org/help/db for help.');
+				promptService.alert(null, 'Problem with Stylem', 'Stylem is having problems opening its database. It will be non-functional until this problem is fixed. See http://userstyles.org/help/db for help.');
 			}
 			throw ex;
 		}
@@ -52,7 +52,7 @@ StylishDataSource.prototype = {
 
 	getFile: function() {
 		if (!this._file) {
-			var path = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getCharPref("extensions.stylish.dbFile");
+			var path = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getCharPref("extensions.stylem.dbFile");
 			if (path) {
 				this._file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
 				this._file.initWithPath(path);

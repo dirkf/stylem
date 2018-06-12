@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE bindings [
-	<!ENTITY % commonDTD SYSTEM "chrome://stylish/locale/common.dtd">
+	<!ENTITY % commonDTD SYSTEM "chrome://stylem/locale/common.dtd">
 	%commonDTD;
 ]>
 

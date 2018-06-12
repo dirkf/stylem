@@ -1,17 +1,17 @@
 #category-userstyle > .category-icon {
-	list-style-image: url("chrome://stylish/skin/32.png");
+	list-style-image: url("chrome://stylem/skin/32.png");
 }
 richlistitem[type="userstyle"]:not([pending]) {
-	-moz-binding: url("chrome://stylish/content/addon.xbl#addon-item");
+	-moz-binding: url("chrome://stylem/content/addon.xbl#addon-item");
 }
 richlistitem[type="userstyle"] .control-container {
-	-moz-binding: url("chrome://stylish/content/addon.xbl#addon-buttons");
+	-moz-binding: url("chrome://stylem/content/addon.xbl#addon-buttons");
 }
 richlistitem[type="userstyle"] [anonid="date-updated"] {
 	display: none;
 }
 richlistitem[type="userstyle"][pending="uninstall"][reportable="true"] .pending {
-	-moz-binding: url("chrome://stylish/content/addon.xbl#addon-uninstalled-buttons");
+	-moz-binding: url("chrome://stylem/content/addon.xbl#addon-uninstalled-buttons");
 }
 /* Remove existing spacer as we add our own */
 richlistitem[type="userstyle"][pending="uninstall"][reportable="true"] button[anonid="undo-btn"] + spacer {

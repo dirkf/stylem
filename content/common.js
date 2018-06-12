@@ -95,14 +95,14 @@ var stylishCommon = {
 		if (!win) {
 			win = window;
 		}
-		var url = "about:stylish-edit";
+		var url = "about:stylem-edit";
 		var first = true;
 		for (var i in params) {
 			if (params[i]) {
 				url += (first ? "?" : "&") + encodeURIComponent(i) + "=" + encodeURIComponent(params[i])
 			}
 		}
-		if (typeof win.gBrowser != "undefined" && Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getIntPref("extensions.stylish.editorWindowMode") == 0) {
+		if (typeof win.gBrowser != "undefined" && Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getIntPref("extensions.stylem.editorWindowMode") == 0) {
 			win.gBrowser.loadOneTab(url, {inBackground: false, relatedToCurrent: true});
 			return;
 		}
@@ -133,7 +133,7 @@ var stylishCommon = {
 			callback("failure");
 			return;
 		}
-		var style = Components.classes["@userstyles.org/style;1"].createInstance(Components.interfaces.stylishStyle);
+		var style = Components.classes["@stylem.ext/style;1"].createInstance(Components.interfaces.stylishStyle);
 		style.mode = style.CALCULATE_META | style.REGISTER_STYLE_ON_CHANGE;
 		style.init(results["uri"], results["stylish-id-url"], results["stylish-update-url"], results["stylish-md5-url"], results["stylish-description"], results["stylish-code"], false, results["stylish-code"], results["stylish-md5"], null);
 		stylishCommon.openInstall({style: style, installPingURL: results["stylish-install-ping-url"], installCallback: callback}, win);
@@ -142,7 +142,7 @@ var stylishCommon = {
 	// Installing from URLs, with prompting and UI and such. startedCallback is called after the user has entered their URLs,
 	// endedCallback is called when the process is done.
 	startInstallFromUrls: function(startedCallback, endedCallback) {
-		const STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/manage.properties")
+		const STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/manage.properties")
 		var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
 		var o = {value: ""};
 		if (!promptService.prompt(window, STRINGS.GetStringFromName("installfromurlsprompttitle"), STRINGS.GetStringFromName("installfromurlsprompt"), o, null, {})) {
@@ -178,7 +178,7 @@ var stylishCommon = {
 			endedCallback();
 		}
 		if (results.failures.length > 0) {
-			const STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/manage.properties")
+			const STRINGS = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/manage.properties")
 			var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
 			promptService.alert(window, STRINGS.GetStringFromName("installfromurlsprompttitle"), STRINGS.formatStringFromName("installfromurlserror", [results.failures.join(", ")], 1));
 		}
@@ -206,7 +206,7 @@ var stylishCommon = {
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function() {
 			if (this.status != 200) {
-				Components.utils.reportError("Stylish install from URL '" + url + "' resulted in HTTP error code " + this.status + ".");
+				Components.utils.reportError("Stylem install from URL '" + url + "' resulted in HTTP error code " + this.status + ".");
 				callback("failure");
 				return;
 			}
@@ -219,14 +219,14 @@ var stylishCommon = {
 				stylishCommon.installFromSite(this.responseXML, callback);
 				return;
 			}
-			Components.utils.reportError("Stylish install from URL '" + url + "' resulted in unknown content type " + contentType + ".");
+			Components.utils.reportError("Stylem install from URL '" + url + "' resulted in unknown content type " + contentType + ".");
 			callback("failure");
 		}
 		try {
 			xhr.open("GET", url);
 		} catch (ex) {
 			// invalid url
-			Components.utils.reportError("Stylish install from URL '" + url + "' failed - not a valid URL.");
+			Components.utils.reportError("Stylem install from URL '" + url + "' failed - not a valid URL.");
 			callback("failure");
 			return;
 		}
@@ -239,7 +239,7 @@ var stylishCommon = {
 		xhr.overrideMimeType("text/css");
 		xhr.onload = function() {
 			if (xhr.status >= 400) {
-				Components.utils.reportError("Stylish install from URL '" + url + "' resulted in HTTP error code " + this.status + ".");
+				Components.utils.reportError("Stylem install from URL '" + url + "' resulted in HTTP error code " + this.status + ".");
 				callback("failure");
 				return;
 			}
@@ -251,7 +251,7 @@ var stylishCommon = {
 
 	installFromString: function(css, uri, callback) {
 		uri = stylishFrameUtils.cleanURI(uri);
-		var style = Components.classes["@userstyles.org/style;1"].createInstance(Components.interfaces.stylishStyle);
+		var style = Components.classes["@stylem.ext/style;1"].createInstance(Components.interfaces.stylishStyle);
 		style.mode = style.CALCULATE_META | style.REGISTER_STYLE_ON_CHANGE;
 		style.init(uri, uri, uri, null, null, css, false, css, null, null);
 		stylishCommon.openInstall({style: style, installCallback: callback});
@@ -267,7 +267,7 @@ var stylishCommon = {
 		}
 		var style = params.style;
 		// let's check if it's already installed
-		var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+		var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 		if (service.findByUrl(style.idUrl, 0) != null) {
 			if (params.installCallback) {
 				params.installCallback("existing");
@@ -276,7 +276,7 @@ var stylishCommon = {
 		}
 
 		if (!stylishCommon.isXULAvailable) {
-			var installStrings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylish/locale/install.properties");
+			var installStrings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://stylem/locale/install.properties");
 			var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
 			var promptTitle = typeof stylishStrings == "undefined" ? "Install user style" : stylishStrings.title;
 			var result;
@@ -316,7 +316,7 @@ var stylishCommon = {
 		}
 		fillName("stylishInstall");
 		if (!stylishCommon.focusWindow(params.windowType)) {
-			win.openDialog("chrome://stylish/content/install.xul", params.windowType, "chrome,resizable,dialog=no,centerscreen,resizable", params);
+			win.openDialog("chrome://stylem/content/install.xul", params.windowType, "chrome,resizable,dialog=no,centerscreen,resizable", params);
 		}
 	},
 

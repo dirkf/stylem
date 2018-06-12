@@ -1,7 +1,7 @@
 <!ENTITY filter "Поиск">
 <!ENTITY installfromurls "Установка стилей по URL адресам…">
-<!ENTITY managetitle "Stylish">
-<!ENTITY nostylesstart "Для информации о том, как использовать Stylish, посетите">
+<!ENTITY managetitle "Stylem">
+<!ENTITY nostylesstart "Для информации о том, как использовать Stylem, посетите">
 <!ENTITY nostylesend ".">
 <!ENTITY sortenabled "Состояние">
 <!ENTITY sortname "Название">

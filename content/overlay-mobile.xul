@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE overlay [
-	<!ENTITY % install SYSTEM "chrome://stylish/locale/install.dtd">
+	<!ENTITY % install SYSTEM "chrome://stylem/locale/install.dtd">
 	%install;
 ]>
 
-<overlay id="stylish-mobile-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay id="stylem-mobile-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script>
 		var stylishStrings = {
 			title: "&title;"

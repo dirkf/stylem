@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://stylish/skin/manage-addons.css" type="text/css"?>
+<?xml-stylesheet href="chrome://stylem/skin/manage-addons.css" type="text/css"?>
 
 <!DOCTYPE overlay [
-	<!ENTITY % manage SYSTEM "chrome://stylish/locale/manage.dtd">
-	<!ENTITY % common SYSTEM "chrome://stylish/locale/common.dtd">
+	<!ENTITY % manage SYSTEM "chrome://stylem/locale/manage.dtd">
+	<!ENTITY % common SYSTEM "chrome://stylem/locale/common.dtd">
 	%manage;
 	%common;
 ]>
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script src="chrome://stylish/content/frame-utils.js"></script>
-	<script src="chrome://stylish/content/common.js"></script>
-	<script src="chrome://stylish/content/manage-addons.js"></script>
+	<script src="chrome://stylem/content/frame-utils.js"></script>
+	<script src="chrome://stylem/content/common.js"></script>
+	<script src="chrome://stylem/content/manage-addons.js"></script>
 
 	<richlistbox id="categories">
-		<stringbundle id="stylishStrings" src="chrome://stylish/locale/manage.properties"/>
+		<stringbundle id="stylishStrings" src="chrome://stylem/locale/manage.properties"/>
 	</richlistbox>
 
 	<vbox id="list-view">

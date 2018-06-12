@@ -1,8 +1,8 @@
 <!ENTITY filter "Hledat">
 <!ENTITY installfromurls "Nainstalovat z URL adresy...">
-<!ENTITY managetitle "Stylish">
+<!ENTITY managetitle "Stylem">
 <!ENTITY nostylesstart "Navštivte">
-<!ENTITY nostylesend "pro informace jak používat Stylish.">
+<!ENTITY nostylesend "pro informace jak používat Stylem.">
 <!ENTITY sortenabled "Povoleno">
 <!ENTITY sortname "Název">
 <!ENTITY sorttype "Typ">

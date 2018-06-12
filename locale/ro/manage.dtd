@@ -1,8 +1,8 @@
 <!ENTITY filter "Search">
 <!ENTITY installfromurls "Install from URLs...">
-<!ENTITY managetitle "Stylish">
+<!ENTITY managetitle "Stylem">
 <!ENTITY nostylesstart "Visit">
-<!ENTITY nostylesend "for information on how to use Stylish.">
+<!ENTITY nostylesend "for information on how to use Stylem.">
 <!ENTITY sortenabled "Enabled">
 <!ENTITY sortname "Name">
 <!ENTITY sorttype "Type">

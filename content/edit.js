@@ -15,7 +15,7 @@ var strings = null;
 var codeE, nameE, updateUrlE;
 //because some editors can have different CRLF settings than what we've saved as, we'll only save if the code in the editor has changed. this will prevent update notifications when there are none
 var initialCode;
-var prefs = Services.prefs.getBranch("extensions.stylish.");
+var prefs = Services.prefs.getBranch("extensions.stylem.");
 
 const CSSXULNS = "@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);";
 const CSSHTMLNS = "@namespace url(http://www.w3.org/1999/xhtml);";
@@ -128,7 +128,7 @@ function init() {
 }
 
 function initStyle() {
-	var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+	var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 
 	// See if the ID/code is in the URL
 	var id;
@@ -157,7 +157,7 @@ function initStyle() {
 		if (code == null) {
 			code = "";
 		}
-		style = Components.classes["@userstyles.org/style;1"].createInstance(Components.interfaces.stylishStyle);
+		style = Components.classes["@stylem.ext/style;1"].createInstance(Components.interfaces.stylishStyle);
 		style.mode = style.CALCULATE_META | style.REGISTER_STYLE_ON_CHANGE;
 		style.init(null, null, null, null, null, code, false, null, null, null);
 		enableSave(true);
@@ -297,7 +297,7 @@ function preview() {
 }
 
 function checkForErrors() {
-	var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle);
+	var service = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle);
 	var errors = document.getElementById("errors");
 	errors.style.display = "none";
 	while (errors.hasChildNodes()) {
@@ -379,7 +379,7 @@ function insertCodeAtCaret(snippet) {
 }
 
 function changeWordWrap(on) {
-	prefs = Services.prefs.getBranch("extensions.stylish.");
+	prefs = Services.prefs.getBranch("extensions.stylem.");
 	prefs.setBoolPref("wrap_lines", on);
 	refreshWordWrap(on);
 }

@@ -55,7 +55,7 @@ var stylishManageAddons = {
 	},
 
 	reportStyle: function(id) {
-		var style = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle).find(id, 0);
+		var style = Components.classes["@stylem.ext/style;1"].getService(Components.interfaces.stylishStyle).find(id, 0);
 		if (!style || !style.idUrl) {
 			return;
 		}

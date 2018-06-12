@@ -1,34 +1,9 @@
-Stylish - a user style manager for Firefox, Thunderbird, SeaMonkey, Pale Moon, and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages look.
-
-* [Releases](https://addons.mozilla.org/en-US/firefox/addon/stylish/)
-* [Source](https://github.com/JasonBarnabe/stylish)
-* [Help](https://userstyles.org/help/stylish_firefox)
+Stylem - a user style manager for Pale Moon, Basilisk, SeaMonkey, Thunderbird, and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages look.
 
 Contributing
 ------------
 
-Pull requests are welcome. Translation work can be done [on Transifex](https://www.transifex.com/projects/p/stylish/) or with a pull request.
-
-Donations
----------
-
-If you like Stylish, consider making a donation. Suggested amount is $5.
-
-* [Donate by PayPal or credit card](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jason.barnabe@gmail.com&item_name=Contribution+for+Stylish)
-* Donate BitCoin to 1Q3snak84MbR2SvSX11Kyz3Rc4f61E5whq
-
-Other Stylishes
----------------
-
-* [Chrome/Opera/other WebKit](https://github.com/JasonBarnabe/stylish-chrome)
-* [Safari](https://github.com/350d/stylish)
-* [Opera (Presto)](https://github.com/gera2ld/Stylish-oex)
-* [Dolphin](https://github.com/Pmmlabs/StylishForDolphin)
-
-Related projects
------------------
-
- * [userstyles.org](https://github.com/JasonBarnabe/userstyles)
+Pull requests are welcome. Translation work can be done with a pull request.
 
 License
 -------
