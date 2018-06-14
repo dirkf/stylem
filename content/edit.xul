@@ -17,7 +17,7 @@
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 
-	<html:link rel="icon" href="chrome://stylem/skin/16.png" style="display:none"/>
+	<html:link rel="icon" href="chrome://stylem/skin/16.svg" style="display:none"/>
 
 	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
 	<script type="application/javascript" src="chrome://stylem/content/edit.js"/>

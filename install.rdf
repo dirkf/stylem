@@ -7,7 +7,7 @@
 		<em:name>Stylem</em:name>
 		<em:version>2.0.7b1</em:version>
 		<em:creator>Lootyhoof</em:creator>
-		<em:iconURL>chrome://stylem/skin/32.png</em:iconURL>
+		<em:iconURL>chrome://stylem/skin/32.svg</em:iconURL>
 		<em:optionsType>2</em:optionsType>
 		<em:optionsURL>chrome://stylem/content/options.xul</em:optionsURL>
 		<em:multiprocessCompatible>true</em:multiprocessCompatible>

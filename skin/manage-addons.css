@@ -1,5 +1,5 @@
 #category-userstyle > .category-icon {
-	list-style-image: url("chrome://stylem/skin/32.png");
+	list-style-image: url("chrome://stylem/skin/32.svg");
 }
 richlistitem[type="userstyle"]:not([pending]) {
 	-moz-binding: url("chrome://stylem/content/addon.xbl#addon-item");

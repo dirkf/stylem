@@ -129,7 +129,7 @@ function getUserStyleWrapper(s) {
 		pendingOperations: AddonManager.PENDING_NONE,
 		isCompatible: true,
 		isPlatformCompatible: true,
-		iconURL: "chrome://stylem/skin/32.png",
+		iconURL: "chrome://stylem/skin/32.svg",
 		scope: AddonManager.SCOPE_PROFILE,
 		blocklistState: Components.interfaces.nsIBlocklistService.STATE_NOT_BLOCKED,
 		version: "",
