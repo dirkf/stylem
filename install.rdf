@@ -1,151 +1,135 @@
 <?xml version="1.0"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-	<Description rdf:about="urn:mozilla:install-manifest">
-		<em:id>{503a85e3-84c9-40e5-b98e-98e62085837f}</em:id>
-		<em:name>Stylem</em:name>
-		<em:version>2.0.7b1</em:version>
-		<em:creator>Lootyhoof</em:creator>
-		<em:iconURL>chrome://stylem/skin/32.svg</em:iconURL>
-		<em:optionsType>2</em:optionsType>
-		<em:optionsURL>chrome://stylem/content/options.xul</em:optionsURL>
-		<em:multiprocessCompatible>true</em:multiprocessCompatible>
-		<em:translator>Team erweiterungen.de - de</em:translator>
-		<em:translator>Fux - de</em:translator>
-		<em:translator>drry - ja</em:translator>
-		<em:translator>Ghelman - pt-BR</em:translator>
-		<em:translator>xmoke - zh-CN</em:translator>
-		<em:translator>MatrixIsAllOver - it</em:translator>
-		<em:translator>pirlouy - fr</em:translator>
-		<em:translator>jojaba - fr</em:translator>
-		<em:translator>loveleeyoungae - vi</em:translator>
-		<em:translator>AllanKJ - da</em:translator>
-		<em:translator>Ian Moody - en-GB</em:translator>
-		<em:translator>xren - ru</em:translator>
-		<em:translator>momo6562 - zh-TW</em:translator>
-		<em:translator>Alf - nl</em:translator>
-		<em:translator>chuzo - es-ES</em:translator>
-		<em:translator>Allan Kimmer Jensen - sv-SE</em:translator>
-		<em:translator>teo - pl</em:translator>
-		<em:translator>tymofiy - uk</em:translator>
-		<em:translator>SiiiE - he-IL</em:translator>
-		<em:translator>KNTRO - es-AR</em:translator>
-		<em:translator>Suurkivi - et</em:translator>
-		<em:translator>WonderCsabo - hu</em:translator>
-		<em:translator>JTojnar - cs</em:translator>
-		<em:translator>BlastSound - ko</em:translator>
-		<em:translator>futsudesu - ko</em:translator>
-		<em:translator>maybee - ko</em:translator>
-		<em:translator>surefx - ko</em:translator>
-		<em:translator>tHJYang - ko</em:translator>
-		<em:translator>ДакСРБИЈА - sr</em:translator>
-		<em:translator>Luana - it</em:translator>
-		<em:translator>Atari - ro</em:translator>
-		<em:translator>raulmalea - ro</em:translator>
-		<em:translator>Haebaru - ja</em:translator>
-		<em:translator>Lakrits - sv-SE</em:translator>
-		<em:translator>factorymarks - ja</em:translator>
-		<em:translator>gymka - lt</em:translator>
-		<em:translator>banthaz - sv-SE</em:translator>
-		<em:translator>kenmooda - fi</em:translator>
-		<em:translator>mdr.ksk - et</em:translator>
-		<em:translator>yfdyh000 - zh-CN</em:translator>
-		<em:translator>Joe82 - gl</em:translator>
-		<em:translator>文科 - zh-CN, zh-TW</em:translator>
-		<em:translator>shyangs - zh-TW</em:translator>
-		<em:translator>CoolCmd - ru</em:translator>
-		<em:translator>Michal Čaplygin - cs</em:translator>
-		<em:translator>Tim Nguyen - fr</em:translator>
-		<em:translator>Heimen Stoffels - nl</em:translator>
-		<em:translator>ThBu92 - ar</em:translator>
-		<em:translator>Alp Eren - tr</em:translator>
-		<em:translator>SW1FT - pt-PT</em:translator>
-		<em:contributor>t1470258 - icons</em:contributor>
-		<em:contributor>LouCypher - icons</em:contributor>
-		<em:contributor>s4nji - icons</em:contributor>
-		<em:contributor>Jason Barnabe</em:contributor>
-		<em:type>2</em:type>
-		<!--Basilisk-->
-		<em:targetApplication>
-			<Description>
-				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>19.0</em:minVersion>
-				<em:maxVersion>52.*</em:maxVersion>
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description rdf:about="urn:mozilla:install-manifest">
+    <em:id>{503a85e3-84c9-40e5-b98e-98e62085837f}</em:id>
+    <em:name>Stylem</em:name>
+    <em:version>2.2.0</em:version>
+    <em:creator>Lootyhoof</em:creator>
+    <em:iconURL>chrome://stylem/skin/32.svg</em:iconURL>
+    <em:optionsType>2</em:optionsType>
+    <em:optionsURL>chrome://stylem/content/options.xul</em:optionsURL>
+    <em:multiprocessCompatible>true</em:multiprocessCompatible>
+    <em:translator>Team erweiterungen.de - de</em:translator>
+    <em:translator>Fux - de</em:translator>
+    <em:translator>drry - ja</em:translator>
+    <em:translator>Ghelman - pt-BR</em:translator>
+    <em:translator>xmoke - zh-CN</em:translator>
+    <em:translator>MatrixIsAllOver - it</em:translator>
+    <em:translator>pirlouy - fr</em:translator>
+    <em:translator>jojaba - fr</em:translator>
+    <em:translator>loveleeyoungae - vi</em:translator>
+    <em:translator>AllanKJ - da</em:translator>
+    <em:translator>Ian Moody - en-GB</em:translator>
+    <em:translator>xren - ru</em:translator>
+    <em:translator>momo6562 - zh-TW</em:translator>
+    <em:translator>Alf - nl</em:translator>
+    <em:translator>chuzo - es-ES</em:translator>
+    <em:translator>Allan Kimmer Jensen - sv-SE</em:translator>
+    <em:translator>teo - pl</em:translator>
+    <em:translator>tymofiy - uk</em:translator>
+    <em:translator>SiiiE - he-IL</em:translator>
+    <em:translator>KNTRO - es-AR</em:translator>
+    <em:translator>Suurkivi - et</em:translator>
+    <em:translator>WonderCsabo - hu</em:translator>
+    <em:translator>JTojnar - cs</em:translator>
+    <em:translator>BlastSound - ko</em:translator>
+    <em:translator>futsudesu - ko</em:translator>
+    <em:translator>maybee - ko</em:translator>
+    <em:translator>surefx - ko</em:translator>
+    <em:translator>tHJYang - ko</em:translator>
+    <em:translator>ДакСРБИЈА - sr</em:translator>
+    <em:translator>Luana - it</em:translator>
+    <em:translator>Atari - ro</em:translator>
+    <em:translator>raulmalea - ro</em:translator>
+    <em:translator>Haebaru - ja</em:translator>
+    <em:translator>Lakrits - sv-SE</em:translator>
+    <em:translator>factorymarks - ja</em:translator>
+    <em:translator>gymka - lt</em:translator>
+    <em:translator>banthaz - sv-SE</em:translator>
+    <em:translator>kenmooda - fi</em:translator>
+    <em:translator>mdr.ksk - et</em:translator>
+    <em:translator>yfdyh000 - zh-CN</em:translator>
+    <em:translator>Joe82 - gl</em:translator>
+    <em:translator>文科 - zh-CN, zh-TW</em:translator>
+    <em:translator>shyangs - zh-TW</em:translator>
+    <em:translator>CoolCmd - ru</em:translator>
+    <em:translator>Michal Čaplygin - cs</em:translator>
+    <em:translator>Tim Nguyen - fr</em:translator>
+    <em:translator>Heimen Stoffels - nl</em:translator>
+    <em:translator>ThBu92 - ar</em:translator>
+    <em:translator>Alp Eren - tr</em:translator>
+    <em:translator>SW1FT - pt-PT</em:translator>
+    <em:contributor>t1470258 - icons</em:contributor>
+    <em:contributor>LouCypher - icons</em:contributor>
+    <em:contributor>s4nji - icons</em:contributor>
+    <em:contributor>Jason Barnabe</em:contributor>
+    <em:type>2</em:type>
+    <!--Basilisk-->
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>52.0</em:minVersion>
+        <em:maxVersion>55.*</em:maxVersion>
         <em:basilisk>true</em:basilisk>
-			</Description>
-		</em:targetApplication>
-		<!--Thunderbird-->
-		<em:targetApplication>
-			<Description>
-				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
-				<em:minVersion>24.0</em:minVersion>
-				<em:maxVersion>51.0</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!--SeaMonkey-->
-		<em:targetApplication>
-			<Description>
-				<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-				<em:minVersion>2.16</em:minVersion>
-				<em:maxVersion>2.48</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!--Toolkit-->
-		<em:targetApplication>
-			<Description>
-				<em:id>toolkit@mozilla.org</em:id>
-				<em:minVersion>19.0</em:minVersion>
-				<em:maxVersion>51.0</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Postbox -->
-		<em:targetApplication>
-			<Description>
-				<em:id>postbox@postbox-inc.com</em:id>
-				<em:minVersion>1.0b13</em:minVersion>
-				<em:maxVersion>6.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Postbox Express -->
-		<em:targetApplication>
-			<Description>
-				<em:id>express@postbox-inc.com</em:id>
-				<em:minVersion>1.0b13</em:minVersion>
-				<em:maxVersion>6.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Firefox Mobile -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
-				<em:minVersion>19.0</em:minVersion>
-				<em:maxVersion>51.0</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Komodo IDE -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
-				<em:minVersion>7.*</em:minVersion>
-				<em:maxVersion>9.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Komodo Edit -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{b1042fb5-9e9c-11db-b107-000d935d3368}</em:id>
-				<em:minVersion>7.*</em:minVersion>
-				<em:maxVersion>9.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		<!-- Pale Moon -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
-				<em:minVersion>25.0</em:minVersion>
-				<em:maxVersion>28.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-	</Description>
+      </Description>
+    </em:targetApplication>
+    <!--Thunderbird-->
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>24.0</em:minVersion>
+        <em:maxVersion>52.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!--SeaMonkey-->
+    <em:targetApplication>
+      <Description>
+        <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+        <em:minVersion>2.16</em:minVersion>
+        <em:maxVersion>2.49.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!--Toolkit-->
+    <em:targetApplication>
+      <Description>
+        <em:id>toolkit@mozilla.org</em:id>
+        <em:minVersion>19.0</em:minVersion>
+        <em:maxVersion>56.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!-- Postbox -->
+    <em:targetApplication>
+      <Description>
+        <em:id>postbox@postbox-inc.com</em:id>
+        <em:minVersion>1.0b13</em:minVersion>
+        <em:maxVersion>6.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!-- Postbox Express -->
+    <em:targetApplication>
+      <Description>
+        <em:id>express@postbox-inc.com</em:id>
+        <em:minVersion>1.0b13</em:minVersion>
+        <em:maxVersion>6.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!-- Firefox Mobile -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
+        <em:minVersion>19.0</em:minVersion>
+        <em:maxVersion>56.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!-- Pale Moon -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+        <em:minVersion>25.0</em:minVersion>
+        <em:maxVersion>28.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
 </RDF>
