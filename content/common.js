@@ -70,7 +70,7 @@ var stylishCommon = {
 			var browsers = tbWin.gBrowser.browsers;
 			for (var i = 0; i < browsers.length; i++) {
 				// We can't read into remote documents easily. We only work with about:, anyway.
-				if (browsers[i].currentURI.schemeIs("about")) {
+				if (!(browsers[i].isRemoteBrowser) && browsers[i].currentURI.schemeIs("about")) {
 					var de = browsers[i].contentDocument.documentElement;
 					if (de && de.getAttribute("windowtype") == name) {
 						tbWin.gBrowser.selectTabAtIndex(i);
