@@ -30,7 +30,7 @@ AboutStylishEdit.prototype = {
 			let uri = Services.io.newURI("chrome://stylem/content/edit.xul", null, null);
 			channel = Services.io.newChannelFromURIWithLoadInfo(uri, aSecurity_or_aLoadInfo);
 		} else {
-			// less than Firefox 48 / Pale Moon 28 aSecurity_or_aLoadInfo is aSecurity
+			// less than Gecko 48 / Goanna 4 aSecurity_or_aLoadInfo is aSecurity
 			channel = Services.io.newChannel("chrome://stylem/content/edit.xul", null, null);
 		}
 		channel.originalURI = aURI;
