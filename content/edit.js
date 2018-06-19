@@ -16,6 +16,8 @@ var codeE, nameE, updateUrlE;
 //because some editors can have different CRLF settings than what we've saved as, we'll only save if the code in the editor has changed. this will prevent update notifications when there are none
 var initialCode;
 var prefs = Services.prefs.getBranch("extensions.stylem.");
+// for Pale Moon 27+ to access CSS errors preference
+var cssPref = Services.prefs.getBranch("layout.css.");
 
 const CSSXULNS = "@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);";
 const CSSHTMLNS = "@namespace url(http://www.w3.org/1999/xhtml);";
@@ -70,6 +72,14 @@ function init() {
 	updateUrlE.addEventListener("input", function() {enableSave(true);});
 	strings = document.getElementById("strings");
 	codeE = document.getElementById("internal-code");
+
+	// for Pale Moon 27+ turn on CSS errors
+	if (cssPref.getBoolPref("report_errors") == false) {
+		cssPref.setBoolPref("report_errors", true);
+		window.cssToggled = true; // use window.variable to make it global
+	} else {
+		window.cssToggled = false;
+	}
 
 	initStyle();
 
@@ -678,6 +688,10 @@ window.addEventListener("close", function(event) {
 })
 
 window.addEventListener("unload", function(event) {
+	// for Pale Moon 27+ turn off CSS errors
+	if (window.cssToggled == true) {
+		cssPref.setBoolPref("report_errors", false);
+	}
 	//turn off preview!
 	style.setPreview(false);
 	if (initialCode != codeElementWrapper.value) {
