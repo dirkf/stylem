@@ -5,6 +5,16 @@ Contributing
 
 Pull requests are welcome. Translation work can be done with a pull request.
 
+Building
+------------
+
+Simply download the repository and pack into a .zip file. Then, rename the file to .xpi and drag into the browser.
+
+Download
+------------
+
+You can grab the latest release either from the Releases section of this repository, or the [Pale Moon Add-Ons Site](https://addons.palemoon.org/addon/stylem/). Please ensure that `Stylish` is disabled or removed (if installed) before installing to prevent any issues. Stylem will pick up any installed styles.
+
 License
 -------
 
