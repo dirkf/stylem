@@ -73,9 +73,8 @@ addMessageListener("stylish:style-can-be-updated", function(message) {
 	content.document.addEventListener("stylishUpdateChrome", updateFromSite);
 });
 
-addMessageListener("stylish:installed", function(message) {
-	dispatchEvent("StylishInstalled");
-});
+// tell USo that we're here
+dispatchEvent("StylishInstalled");
 
 function updateFromSite(event) {
 	var doc = event.originalTarget;
