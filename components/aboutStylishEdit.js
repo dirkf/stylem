@@ -17,15 +17,9 @@ AboutStylishEdit.prototype = {
 		return Ci.nsIAboutModule.ALLOW_SCRIPT;
 	},
 
-	isPaleMoon: function() {
-		// returns false if not Pale Moon
-		return Services.appinfo.ID == "{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}";
-	},
-
 	newChannel: function(aURI, aSecurity_or_aLoadInfo) {
 		var channel;
-		if ((!(this.isPaleMoon()) && (Services.vc.compare(Services.appinfo.platformVersion, 47) > 0)) 
-				|| (this.isPaleMoon() && (Services.vc.compare(Services.appinfo.platformVersion, 4) > 0))) {
+		if (Services.io.newChannel2) {
 			// greater than or equal to Gecko 48 / Goanna 4 so aSecurity_or_aLoadInfo is aLoadInfo
 			let uri = Services.io.newURI("chrome://stylem/content/edit.xul", null, null);
 			channel = Services.io.newChannelFromURIWithLoadInfo(uri, aSecurity_or_aLoadInfo);
