@@ -1,10 +1,10 @@
 <!ENTITY filter "Hanapin">
-<!ENTITY installfromurls "Mag-talaga mula sa mga URL…">
+<!ENTITY installfromurls "Mag-install mula sa mga URL…">
 <!ENTITY managetitle "Stylem">
 <!ENTITY nostylesstart "Bisitahin ang">
 <!ENTITY nostylesend "para sa impormasyon kung paano gamitin ang Stylem.">
 <!ENTITY sortenabled "Pinapagana">
 <!ENTITY sortname "Pangalan">
-<!ENTITY sorttype "Uri">
-<!ENTITY writenew "Magsulat ng Bagong Estilo">
-<!ENTITY writenew.ak "W">
+<!ENTITY sorttype "Tipo">
+<!ENTITY writenew "Sumulat ng Bagong Estilo">
+<!ENTITY writenew.ak "U">
