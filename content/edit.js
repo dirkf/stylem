@@ -4,12 +4,12 @@ Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
 var require = null;
 try {
-  try {
-    require = Components.utils.import("resource://devtools/shared/Loader.jsm", {}).devtools.require;
-  } catch (ex) {
-    // are we on an older version?
-    require = Components.utils.import("resource://gre/modules/devtools/Loader.jsm", {}).devtools.require;
-  }
+	try {
+		require = Components.utils.import("resource://devtools/shared/Loader.jsm", {}).devtools.require;
+	} catch (ex) {
+		// are we on an older version?
+		require = Components.utils.import("resource://gre/modules/devtools/Loader.jsm", {}).devtools.require;
+	}
 } catch (ex) {
 	// file not available...
 }
@@ -151,7 +151,7 @@ function initStyle() {
 	var code = null;
 	var urlParts = location.href.split("?");
 	if (urlParts.length > 1) {
-        let params;
+		let params;
 		params = urlParts[1].split("&");
 		params.forEach(function(param) {
 			var kv = param.split("=");
