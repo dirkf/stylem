@@ -11,18 +11,18 @@ var stylishOverlay = {
 	uiElementIds: ["stylem-toolbar-button"],
 
 	init: function() {
+		stylishOverlay.STRINGS = document.getElementById("stylem-strings");
+		stylishOverlay.URL_STRINGS = document.getElementById("stylem-url-strings");
+
 		try { // do not allow to run Stylish and Stylem at the same time
 			var addons = Services.prefs.getCharPref("extensions.enabledAddons");
 			if (addons.indexOf("%7B46551EC9-40F0-4e47-8E18-8E5CF550CFB8%7D") !== -1) {
-				Services.prompt.alert(null, "Warning!", "Stylish is incompatible with Stylem and will be disabled!");
+				Services.prompt.alert(null, stylishOverlay.STRINGS.getString("stylishwarning"), stylishOverlay.STRINGS.getString("stylishdisable"));
 				Components.utils.import("resource://gre/modules/AddonManager.jsm");
 				AddonManager.getAddonByID("{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}", function(addon) { addon.userDisabled = true; });
 				Services.startup.quit(Services.startup.eRestart | Services.startup.eAttemptQuit);
 			}
 		} catch(e) {}
-
-		stylishOverlay.STRINGS = document.getElementById("stylem-strings");
-		stylishOverlay.URL_STRINGS = document.getElementById("stylem-url-strings");
 
 		var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch);
 		switch (prefService.getIntPref("extensions.stylem.firstRun")) {
