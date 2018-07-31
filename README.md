@@ -10,6 +10,8 @@ Building
 
 Simply download the contents of the "src" folder and pack the contents into a .zip file. Then, rename the file to .xpi and drag into the browser.
 
+Information on producing the `xpt` files featured here using the `idl` files in `src/idl/` can be found on [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/XPIDL/Generating_xpt_on_Windows).
+
 Download
 ------------
 
@@ -19,6 +21,7 @@ License
 -------
 
 Copyright (C) 2005-2014 Jason Barnabe <jason.barnabe@gmail.com>
+
 Copyright (C) 2018+ Stylem Contributors
 
 This program is free software: you can redistribute it and/or modify
