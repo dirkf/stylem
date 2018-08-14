@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.3
+- improve `cs` locale (thanks janekptacijarabaci/GMForker)
+- fix uninstall undo button spacing
+
 ### 2.2.2
 - fix devtools deprecation warning
 - align Tagalog locale with Pale Moon style (thanks FranklinDM)
