@@ -26,6 +26,7 @@
 	<binding id="addon-uninstalled-buttons">
 		<content>
 			<xbl:children/>
+			<xul:spacer flex="5000"/>
 		</content>
 		<implementation/>
 	</binding>
