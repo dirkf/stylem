@@ -30,7 +30,7 @@ var stylishCommon = {
 	isXULAvailable: Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).widgetToolkit.toLowerCase() != "android",
 
 	deleteWithPrompt: function(style) {
-		const STRINGS = document.getElementById("stylish-common-strings");
+		const STRINGS = document.getElementById("stylem-common-strings");
 		var title = STRINGS.getString("deleteStyleTitle");
 		var prompt = STRINGS.getFormattedString("deleteStyle", [style.name]);
 		var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
