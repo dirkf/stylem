@@ -1,6 +1,7 @@
 "use strict";
 
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+Components.utils.import("resource://gre/modules/Services.jsm");
 
 function Style() {
 	this.id = 0;
@@ -999,8 +1000,9 @@ Style.prototype = {
 	},
 
 	calculateRegistrationMethod: function() {
+		let isSeaMonkey = "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
 		// Default to AUTHOR_SHEET if available, AGENT_SHEET if not or specifically chosen with a comment like /* AGENT_SHEET */
-		if (!("AUTHOR_SHEET" in this.sss) || /\/\*\s*AGENT_SHEET\s*\*\//.test(this.code)) {
+		if (!("AUTHOR_SHEET" in this.sss) || Services.appinfo.ID == isSeaMonkey || /\/\*\s*AGENT_SHEET\s*\*\//.test(this.code)) {
 			return this.sss.AGENT_SHEET;
 		}
 		return this.sss.AUTHOR_SHEET;
