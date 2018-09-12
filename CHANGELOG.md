@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.4
+- fix uninstalling styles by context menu
+- fix applying userstyles on SeaMonkey
+
 ### 2.2.3
 - improve `cs` locale (thanks janekptacijarabaci/GMForker)
 - fix uninstall undo button spacing
