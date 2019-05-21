@@ -20,13 +20,14 @@ var stylishFrameUtils = {
 
 	// Callback passes hash or null
 	gatherStyleInfo: function(doc, callback) {
-		// we want both the url and the content of the md5
+		// we want both the url and the content of the md5 and update url
 		var md5Url = stylishFrameUtils.getMeta(doc, "stylish-md5-url");
-		var resourcesNeeded = [{name: "stylish-code", download: true}, {name: "stylish-description", download: true}, {name: "stylish-install-ping-url"}, {name: "stylish-update-url"}, {name: "stylish-md5-url", download: true}, {name: "stylish-id-url"}];
+		var updateUrl = stylishFrameUtils.getMeta(doc, "stylish-update-url");
+		var resourcesNeeded = [{name: "stylish-update-url", download: true}, {name: "stylish-description", download: true}, {name: "stylish-install-ping-url"}, {name: "stylish-md5-url", download: true}, {name: "stylish-id-url"}];
 
 		stylishFrameUtils.getResourcesFromMetas(doc, resourcesNeeded, function(results) {
 			// This is the only required property
-			if (results["stylish-code"] == null || results["stylish-code"].length == 0) {
+			if (results["stylish-update-url"] == null || results["stylish-update-url"].length == 0) {
 				callback(null);
 				return;
 			}
@@ -37,7 +38,10 @@ var stylishFrameUtils = {
 			}
 			results["stylish-md5"] = results["stylish-md5-url"];
 			results["stylish-md5-url"] = md5Url;
-
+			// the update url contains our code so let's use it
+			results["stylish-code"] = results["stylish-update-url"];
+			// put the actual update url in its proper place
+			results["stylish-update-url"] = updateUrl;
 			callback(results);
 		});
 	},

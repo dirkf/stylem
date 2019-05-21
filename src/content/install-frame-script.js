@@ -79,9 +79,14 @@ dispatchEvent("StylishInstalled");
 function updateFromSite(event) {
 	var doc = event.originalTarget;
 	if (isAllowedToInstall(doc)) {
-		stylishFrameUtils.getResourcesFromMetas(doc, [{name: "stylish-md5-url", download: true}, {name: "stylish-update-url"}, {name: "stylish-id-url"}, {name: "stylish-code", download: true}], function(results) {
-			// we want both the url and the content of the md5
+		stylishFrameUtils.getResourcesFromMetas(doc, [{name: "stylish-md5-url", download: true}, {name: "stylish-id-url"}, {name: "stylish-update-url", download: true}], function(results) {
+			// we want both the url and the content of the md5 and update url
 			var md5Url = stylishFrameUtils.getMeta(doc, "stylish-md5-url");
+			var updateUrl = stylishFrameUtils.getMeta(doc, "stylish-update-url");
+			// the update url contains our code so let's use it
+			results["stylish-code"] = results["stylish-update-url"];
+			// put the actual update url in its proper place
+			results["stylish-update-url"] = updateUrl;
 			sendAsyncMessage("stylish:update-style", {idUrl: results["stylish-id-url"], md5:results["stylish-md5-url"], md5Url: md5Url, updateUrl: results["stylish-update-url"], code: results["stylish-code"]});
 		});
 	}
