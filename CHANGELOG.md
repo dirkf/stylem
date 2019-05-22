@@ -1,5 +1,12 @@
 # Changelog
 
+### 2.2.5
+- make the Stylish disabler work better across XUL applications (thanks vanowm)
+- fix installing userstyles from userstyles.org (though customizable styles will use their default settings)
+- add Borealis Navigator support
+- adjust for Interlink support
+- remove Thunderbird/Postbox/Fennec support
+
 ### 2.2.4
 - fix uninstalling styles by context menu
 - fix applying userstyles on SeaMonkey
