@@ -1,4 +1,4 @@
-Stylem - a user style manager for Pale Moon, Basilisk, SeaMonkey, Thunderbird, and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages and the application look.
+Stylem - a user style manager for Pale Moon, Basilisk, Interlink, SeaMonkey, and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages and the application look.
 
 Contributing
 ------------
