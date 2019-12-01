@@ -533,7 +533,7 @@ var stylishOverlay = {
 	},
 
 	get currentURI() {
-		return gBrowser.currentURI;
+		return (typeof gBrowser != "undefined") ? gBrowser.currentURI: null;
 	},
 
 	getFromContent: function(contentMessage, callback) {
