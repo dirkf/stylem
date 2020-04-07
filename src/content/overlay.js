@@ -15,18 +15,13 @@ var stylishOverlay = {
 		stylishOverlay.URL_STRINGS = document.getElementById("stylem-url-strings");
 
 		try { // do not allow to run Stylish and Stylem at the same time
-			Components.utils.import("resource://gre/modules/AddonManager.jsm");
-			//for some reason stylishOverlay does not load properly in AddonManager callback
-			var stylishwarning = stylishOverlay.STRINGS.getString("stylishwarning");
-			var stylishdisable = stylishOverlay.STRINGS.getString("stylishdisable");
-			AddonManager.getAddonByID("{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}", function(addon){
-				if (addon.userDisabled) {
-					return;
-				}
-				addon.userDisabled = true;
-				Services.prompt.alert(null, stylishwarning, stylishdisable);
+			var addons = Services.prefs.getCharPref("extensions.enabledAddons");
+			if (addons.indexOf("%7B46551EC9-40F0-4e47-8E18-8E5CF550CFB8%7D") !== -1) {
+				Services.prompt.alert(null, stylishOverlay.STRINGS.getString("stylishwarning"), stylishOverlay.STRINGS.getString("stylishdisable"));
+				Components.utils.import("resource://gre/modules/AddonManager.jsm");
+				AddonManager.getAddonByID("{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}", function(addon) { addon.userDisabled = true; });
 				Services.startup.quit(Services.startup.eRestart | Services.startup.eAttemptQuit);
-			});
+			}
 		} catch(e) {}
 
 		var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).QueryInterface(Components.interfaces.nsIPrefBranch);
