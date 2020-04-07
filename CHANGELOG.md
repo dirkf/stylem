@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.2.6
+- change first run URL to be the repository's wiki
+- revert disabler change from 2.2.5
+- adjust supported applications
+- minor CSS cleanup
+
 ### 2.2.5
 - make the Stylish disabler work better across XUL applications (thanks vanowm)
 - fix installing userstyles from userstyles.org (though customizable styles will use their default settings)
