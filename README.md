@@ -1,4 +1,4 @@
-Stylem - a user style manager for Pale Moon, Basilisk, Interlink, SeaMonkey, and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages and the application look.
+Stylem - a user style manager for Pale Moon, Interlink and other Mozilla-based software. Install styles from [userstyles.org](https://userstyles.org/) to change how web pages and the application look.
 
 Contributing
 ------------
@@ -12,7 +12,7 @@ Simply download the contents of the "src" folder and pack the contents into a .z
 
 On Unix systems (or Windows 10, with [WSL](https://docs.microsoft.com/en-us/windows/wsl/about)) you can optionally run `build.sh` instead. Running this as-is will produce a .xpi file ending in `-dev`, and if run from the command line and appending a number (e.g. `./build.sh 2`) will append that number to the filename instead.
 
-Information on producing the `xpt` files featured here using the `idl` files in `src/idl/` can be found on [MDN](https://developer.mozilla.org/en-US/docs/Mozilla/XPIDL/Generating_xpt_on_Windows).
+Information on producing the `xpt` files featured here using the `idl` files in `src/idl/` can be found on [UDN](https://udn.realityripple.com/docs/Mozilla/Tech/XPIDL/Generating_xpt_on_Windows).
 
 Download
 ------------
