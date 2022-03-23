@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.7
+- support Pale Moon 30
+- minor internal cleanup
+
 ### 2.2.6
 - change first run URL to be the repository's wiki
 - revert disabler change from 2.2.5
