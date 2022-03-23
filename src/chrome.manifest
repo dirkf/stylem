@@ -65,6 +65,3 @@ contract @mozilla.org/network/protocol/about;1?what=stylem-edit {20fd33cc-9c23-4
 skin	stylem	classic/1.0	skin/
 
 style	chrome://global/content/customizeToolbar.xul	chrome://stylem/skin/overlay.css
-
-# fennec
-override chrome://stylem/content/overlay.xul chrome://stylem/content/overlay-mobile.xul	application={aa3c5121-dab2-40e2-81ca-7ea25febc110}
