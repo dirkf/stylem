@@ -24,7 +24,7 @@ License
 
 Copyright (C) 2005-2014 Jason Barnabe <jason.barnabe@gmail.com>
 
-Copyright (C) 2018+ Stylem Contributors
+Copyright (C) 2018-2022 Stylem Contributors
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
