@@ -1,5 +1,10 @@
 # Changelog
 
+### 2.2.8-df
+- compatibility with "last" Firefox 57 (https://github.com/stylish-userstyles/stylish/pull/319)
+- update version number
+- update compatibility
+
 ### 2.2.7-df
 - support Pale Moon 30
 - minor internal cleanup
