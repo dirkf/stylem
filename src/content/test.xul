@@ -10,10 +10,10 @@
 
 	<button id="test" label="test"/>
 
-	<script type="application/javascript" src="base-test.js"/>
-	<script type="application/javascript" src="overlay.js"/>
-	<script type="application/javascript" src="utils.js"/>
-	<script type="application/javascript" src="common.js"/>
-	<script type="application/javascript" src="unittest.js"/>
+	<script type="text/javascript" src="base-test.js"/>
+	<script type="text/javascript" src="overlay.js"/>
+	<script type="text/javascript" src="utils.js"/>
+	<script type="text/javascript" src="common.js"/>
+	<script type="text/javascript" src="unittest.js"/>
 
 </dialog>

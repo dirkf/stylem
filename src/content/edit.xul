@@ -19,15 +19,15 @@
 
 	<html:link rel="icon" href="chrome://stylem/skin/16.svg" style="display:none"/>
 
-	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
-	<script type="application/javascript" src="chrome://stylem/content/edit.js"/>
-	<script type="application/javascript" src="chrome://stylem/content/frame-utils.js"/>
-	<script type="application/javascript" src="chrome://stylem/content/common.js"/>
-	<script type="application/javascript;version=1.8" src="chrome://browser/content/devtools/theme-switching.js"></script>
-	<script type="application/javascript;version=1.8" src="chrome://devtools/content/shared/theme-switching.js"></script>
-	<script type="application/javascript;version=1.8" src="chrome://global/content/devtools/theme-switching.js"></script>
+	<script type="text/javascript" src="chrome://global/content/globalOverlay.js"/>
+	<script type="text/javascript" src="chrome://stylem/content/edit.js"/>
+	<script type="text/javascript" src="chrome://stylem/content/frame-utils.js"/>
+	<script type="text/javascript" src="chrome://stylem/content/common.js"/>
+	<script type="text/javascript" src="chrome://browser/content/devtools/theme-switching.js"></script>
+	<script type="text/javascript" src="chrome://devtools/content/shared/theme-switching.js"></script>
+	<script type="text/javascript" src="chrome://global/content/devtools/theme-switching.js"></script>
 
-	<script type="application/javascript" src="chrome://itsalltext/content/API.js"/>
+	<script type="text/javascript" src="chrome://itsalltext/content/API.js"/>
 
 	<stringbundle id="strings" src="chrome://stylem/locale/edit.properties"/>
 

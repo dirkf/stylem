@@ -9,9 +9,9 @@
 <overlay id="stylem-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/javascript" src="frame-utils.js"/>
-	<script type="application/javascript" src="common.js"/>
-	<script type="application/javascript" src="domiOverlay.js"/>
+	<script type="text/javascript" src="frame-utils.js"/>
+	<script type="text/javascript" src="common.js"/>
+	<script type="text/javascript" src="domiOverlay.js"/>
 
 	<popup id="ppDOMContext">
 		<menu id="copy-selector" label="&copyselector;" insertafter="mnEditCopy">

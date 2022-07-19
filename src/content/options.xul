@@ -4,7 +4,7 @@
 
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<setting type="control">
-		<script type="application/javascript" src="chrome://stylem/content/options.js"/>  
+		<script type="text/javascript" src="chrome://stylem/content/options.js"/>  
 		<button id="addons-stylem-manage" label="&managestyles;" oncommand="var view = document.getElementById('category-userstyle');if (view) { view.click(); } else { location.href = 'chrome://stylem/content/manage.html'; }"/>  
 	</setting>
 </vbox>

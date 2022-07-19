@@ -49,7 +49,6 @@ Style.prototype = {
 	classDescription: "Stylem Style",
 	classID: Components.ID("{152f4e0f-2b9a-4bb8-b058-736b687f7555}"),
 	contractID: "@stylem.ext/style;1",
-	implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
 	flags: 0,
 
 
@@ -596,7 +595,27 @@ Style.prototype = {
 		var doc = doc1.implementation.createDocument(this.HTMLNS, "stylem-parse", null)
 		var style = doc.createElementNS(this.HTMLNS, "style");
 		style.appendChild(doc.createTextNode(code));
+
+		var mozDocContentEnabledPrefName = "layout.css.moz-document.content.enabled";
+		var initialMozDocContentEnabled, currentMozDocContentEnabled;
+		try {
+			initialMozDocContentEnabled = currentMozDocContentEnabled = Services.prefs.getBoolPref(mozDocContentEnabledPrefName);
+		}
+		catch (ex) {}
+
+		// temporarily lift the restriction for processing -moz-document rules
+		// applicable to SeaMonkey 2.49.2+
+		if (currentMozDocContentEnabled === false) {
+			Services.prefs.setBoolPref(mozDocContentEnabledPrefName, true);
+			currentMozDocContentEnabled = true;
+		}
+
 		doc.documentElement.appendChild(style);
+
+		if (currentMozDocContentEnabled !== initialMozDocContentEnabled) {
+			Services.prefs.setBoolPref(mozDocContentEnabledPrefName, initialMozDocContentEnabled);
+		}
+
 		return doc.styleSheets[0];
 
 	},

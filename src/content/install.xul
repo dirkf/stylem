@@ -26,9 +26,9 @@
 	buttonlabelextra1="&preview;"
 	buttonaccesskeyextra1="&preview.ak;">
 
-	<script type="application/javascript" src="frame-utils.js"/>
-	<script type="application/javascript" src="common.js"/>
-	<script type="application/javascript" src="install.js"/>
+	<script type="text/javascript" src="frame-utils.js"/>
+	<script type="text/javascript" src="common.js"/>
+	<script type="text/javascript" src="install.js"/>
 
 	<stringbundle id="strings" src="chrome://stylem/locale/install.properties"/>
 

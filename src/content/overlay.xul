@@ -11,9 +11,9 @@
 
 <overlay id="stylem-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/javascript" src="common.js"/>
-	<script type="application/javascript" src="frame-utils.js"/>
-	<script type="application/javascript" src="overlay.js"/>
+	<script type="text/javascript" src="common.js"/>
+	<script type="text/javascript" src="frame-utils.js"/>
+	<script type="text/javascript" src="overlay.js"/>
 
 	<stringbundleset id="stringbundleset">
 		<stringbundle id="stylem-strings" src="chrome://stylem/locale/overlay.properties"/>
