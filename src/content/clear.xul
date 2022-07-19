@@ -4,5 +4,5 @@
 <!DOCTYPE dialog>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<script type="application/javascript" src="clear.js"/>
+	<script type="text/javascript" src="clear.js"/>
 </dialog>
