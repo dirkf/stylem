@@ -1,0 +1,22 @@
+<!ENTITY checkforerrors "Poišči napake">
+<!ENTITY checkforerrors.ak "n">
+<!ENTITY chromefolder "Chrome - pot do mape">
+<!ENTITY chromefolder.ak "C">
+<!ENTITY dataURI "Podatkovni URI…">
+<!ENTITY dataURI.ak "P">
+<!ENTITY htmlnamespace "HTML kot privzeti imenski prostor">
+<!ENTITY htmlnamespace.ak "H">
+<!ENTITY insert "Vstavi">
+<!ENTITY insert.ak "V">
+<!ENTITY name "Ime">
+<!ENTITY name.ak "I">
+<!ENTITY openintexternaleditor "Odpri v zunanjem urejevalniku">
+<!ENTITY openintexternaleditor.ak "O">
+<!ENTITY preview "Predogled">
+<!ENTITY preview.ak "P">
+<!ENTITY save "Shrani">
+<!ENTITY save.ak "S">
+<!ENTITY wraplines "Prelomi vrstice">
+<!ENTITY wraplines.ak "r">
+<!ENTITY xulnamespace "XUL kot privzeti imenski prostor">
+<!ENTITY xulnamespace.ak "X">
