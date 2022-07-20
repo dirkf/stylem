@@ -1,0 +1,18 @@
+<!ENTITY addfile "Namesti datoteko…">
+<!ENTITY addfile.ak "d">
+<!ENTITY cmd.enable.label "Omogoči">
+<!ENTITY cmd.enable.accesskey "O">
+<!ENTITY cmd.disable.label "Onemogoči">
+<!ENTITY cmd.disable.accesskey "n">
+<!ENTITY cmd.uninstall.label "Odstrani">
+<!ENTITY cmd.uninstall2.accesskey "r">
+<!ENTITY findstylebrowser "Najdi sloge za to stran…">
+<!ENTITY findstylebrowser.ak "s">
+<!ENTITY managestyles "Upravljaj sloge…">
+<!ENTITY managestyles.ak "U">
+<!ENTITY turnon "Vklopi vse sloge">
+<!ENTITY turnon.ak "V">
+<!ENTITY turnoff "Izklopi vse sloge">
+<!ENTITY turnoff.ak "I">
+<!ENTITY writestyle "Napiši nov slog">
+<!ENTITY writestyle.ak "N">
