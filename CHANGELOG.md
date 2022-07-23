@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.8
+- support SeaMonkey 2.53.* (thanks UCyborg)
+- add Slovenian translation (thanks UCyborg)
+
 ### 2.2.7
 - support Pale Moon 30
 - minor internal cleanup
