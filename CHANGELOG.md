@@ -5,10 +5,16 @@
 - update version number
 - update compatibility
 
+### 2.2.8
+- support SeaMonkey 2.53.* (thanks UCyborg)
+- add Slovenian translation (thanks UCyborg)
+
 ### 2.2.7-df
+- restore SeaMonkey support
+
+### 2.2.7
 - support Pale Moon 30
 - minor internal cleanup
-- restore SeaMonkey support
 
 ### 2.2.6
 - change first run URL to be the repository's wiki
